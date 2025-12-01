@@ -12,7 +12,7 @@ versions.value = [
     title: "MalabarJS Founded",
     date: "2025-11-22",
     markdown:
-      "MalabarJS was founded by an individual from Kerala who wanted a space to learn and collaborate.",
+      "MalabarJS was founded in 2025 to empower Kerala’s developers through collaboration, open-source, and shared learning.",
   },
 ];
 </script>
