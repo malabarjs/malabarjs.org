@@ -1,25 +1,24 @@
 <script setup>
 useHead({
-  meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
-  link: [{ rel: "icon", href: "/favicon.ico" }],
+  meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+  link: [{ rel: 'icon', href: '/favicon.ico' }],
   htmlAttrs: {
-    lang: "en",
-  },
-});
+    lang: 'en'
+  }
+})
 
-const title = "Malabar JS";
-const description =
-  "Join a community that celebrates curiosity, supports creators, and brings ambitious JavaScript developers together.";
+const title = 'Malabar JS'
+const description = 'Join a community that celebrates curiosity, supports creators, and brings ambitious JavaScript developers together.'
 
 useSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: "https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png",
-  twitterImage: "https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png",
-  twitterCard: "summary_large_image",
-});
+  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png',
+  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png',
+  twitterCard: 'summary_large_image'
+})
 </script>
 
 <template>
@@ -36,8 +35,8 @@ useSeoMeta({
             variant: 'ghost',
             size: 'md',
             to: 'https://github.com/malabarjs',
-            target: '_blank',
-          },
+            target: '_blank'
+          }
         ]"
         :ui="{
           root: 'border-b border-default xl:border-b-0 xl:sticky xl:inset-y-0 xl:h-screen overflow-hidden',
@@ -46,7 +45,7 @@ useSeoMeta({
           headline: 'mb-6',
           title: 'text-left text-4xl',
           description: 'text-left max-w-lg',
-          links: 'gap-1 justify-start -ms-2.5',
+          links: 'gap-1 justify-start -ms-2.5'
         }"
       >
         <template #top>
