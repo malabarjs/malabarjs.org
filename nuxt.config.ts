@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@nuxtjs/mdc'
+    '@nuxt/content'
   ],
 
   devtools: {
@@ -12,14 +12,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  mdc: {
-    highlight: {
-      langs: ['diff', 'ts', 'vue', 'css']
-    },
-    remarkPlugins: {
-      'remark-github': {
-        options: {
-          repository: 'nuxt-ui-templates/changelog'
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['diff', 'ts', 'vue', 'css', 'js', 'json', 'bash']
         }
       }
     }

@@ -1,8 +1,51 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+/* FML Nanditha - for "Malabar" text */
+@font-face {
+  font-family: 'Nanditha';
+  src: url('/FML-Nanditha/FML-Nanditha.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nanditha';
+  src: url('/FML-Nanditha/FML-Nanditha-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FML Leela - for tagline */
+@font-face {
+  font-family: 'Leela';
+  src: url('/FML-Leela/FMLLL0NTT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Leela';
+  src: url('/FML-Leela/FMLLL0BTT.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Leela';
+  src: url('/FML-Leela/FMLLL0ITT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
+  --font-malayalam: 'Malayalam', sans-serif;
 
   --color-green-50: #EFFDF5;
   --color-green-100: #D9FBE8;

@@ -1,20 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const versions = ref<
-  Array<{ tag: string, title: string, date: string, markdown: string }>
->([])
-
-// Fallback minimal dataset so page still renders when no local markdown exists
-versions.value = [
-  {
-    tag: 'founding',
-    title: 'MalabarJS Founded',
-    date: '2025-11-22',
-    markdown:
-      'MalabarJS was founded in 2025 to empower Kerala’s developers through collaboration, open-source, and shared learning.'
-  }
-]
+// Query all activities from /content/activities/, sorted by date descending
+const { data: activities } = await useAsyncData('activities', () =>
+  queryCollection('activities').order('date', 'DESC').all()
+)
 </script>
 
 <template>
@@ -27,9 +15,11 @@ versions.value = [
     }"
   >
     <UChangelogVersion
-      v-for="version in versions"
-      :key="version.tag"
-      v-bind="version"
+      v-for="activity in activities"
+      :key="activity.stem"
+      :tag="activity.tag"
+      :title="activity.title"
+      :date="activity.date"
       :ui="{
         root: 'flex items-start',
         container: 'max-w-xl',
@@ -41,29 +31,19 @@ versions.value = [
       }"
     >
       <template #body>
-        <!--
-          Use MDC to render markdown/html when available. If markdown is empty,
-          provide a small helpful fallback that points to content/activities.
-        -->
-        <MDC
-          v-if="version.markdown"
-          :value="version.markdown"
-        />
-
-        <div
-          v-else
-          class="text-sm text-muted"
-        >
-          <p class="mb-2">
-            {{ version.title }}
-          </p>
-          <p class="text-xs">
-            Add a markdown file to <code>/content/activities/</code> with
-            frontmatter (title, date). The content will appear here
-            automatically.
-          </p>
-        </div>
+        <ContentRenderer :value="activity" />
       </template>
     </UChangelogVersion>
+
+    <!-- Fallback when no activities exist -->
+    <div
+      v-if="!activities?.length"
+      class="text-center text-muted py-12"
+    >
+      <p class="mb-2">No activities yet.</p>
+      <p class="text-sm">
+        Add markdown files to <code class="bg-muted px-1.5 py-0.5 rounded">/content/activities/</code> to get started.
+      </p>
+    </div>
   </UChangelogVersions>
 </template>
