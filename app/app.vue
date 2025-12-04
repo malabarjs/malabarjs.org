@@ -100,7 +100,7 @@ const joinFormUrl = 'https://forms.gle/TBKPRekxr4wN6EJp9' // ← Replace with yo
           </p>
 
           <!-- Upcoming Event Card -->
-          <div class="bg-elevated border border-default rounded-lg p-4 mb-6 max-w-sm">
+          <div class="bg-elevated border border-default rounded-lg p-4 max-w-sm">
             <div class="flex items-center gap-2 text-primary text-xs font-medium mb-2">
               <UIcon name="i-lucide-calendar" class="size-4" />
               <span>UPCOMING</span>
