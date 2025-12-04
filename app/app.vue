@@ -102,10 +102,15 @@ const joinFormUrl = 'https://forms.gle/TBKPRekxr4wN6EJp9' // ← Replace with yo
           <!-- Upcoming Event Card -->
           <div class="bg-elevated border border-default rounded-lg p-4 max-w-sm">
             <div class="flex items-center gap-2 text-primary text-xs font-medium mb-2">
-              <UIcon name="i-lucide-calendar" class="size-4" />
+              <UIcon
+                name="i-lucide-calendar"
+                class="size-4"
+              />
               <span>UPCOMING</span>
             </div>
-            <h3 class="font-semibold text-highlighted">{{ upcomingEvent.title }}</h3>
+            <h3 class="font-semibold text-highlighted">
+              {{ upcomingEvent.title }}
+            </h3>
             <p class="text-sm text-muted mt-1">
               {{ upcomingEvent.date }} · {{ upcomingEvent.location }}
             </p>

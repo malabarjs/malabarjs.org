@@ -40,7 +40,9 @@ const { data: activities } = await useAsyncData('activities', () =>
       v-if="!activities?.length"
       class="text-center text-muted py-12"
     >
-      <p class="mb-2">No activities yet.</p>
+      <p class="mb-2">
+        No activities yet.
+      </p>
       <p class="text-sm">
         Add markdown files to <code class="bg-muted px-1.5 py-0.5 rounded">/content/activities/</code> to get started.
       </p>
