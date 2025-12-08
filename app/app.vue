@@ -11,7 +11,7 @@ useHead({
 })
 
 const title = 'Malabar JS'
-const description = 'Join a community that celebrates curiosity, supports creators, and brings ambitious JavaScript developers together.'
+const description = 'A space that feels like home for JavaScript developers in Kerala.'
 
 useSeoMeta({
   title,
@@ -24,6 +24,11 @@ useSeoMeta({
 })
 
 const socialLinks = [
+  {
+    label: 'Blog',
+    icon: 'i-lucide-pen-line',
+    to: 'https://blog.malabarjs.org'
+  },
   {
     label: 'GitHub',
     icon: 'i-simple-icons-github',
@@ -62,7 +67,7 @@ const joinFormUrl = 'https://forms.gle/TBKPRekxr4wN6EJp9' // ← Replace with yo
   <UApp>
     <div class="min-h-screen xl:grid xl:grid-cols-2">
       <UPageSection
-        description="Join a community that celebrates curiosity, supports creators, and brings ambitious JavaScript developers together."
+        description="A space that feels like home for JavaScript developers in Kerala."
         orientation="vertical"
         :ui="{
           root: 'border-b border-default xl:border-b-0 xl:h-screen xl:overflow-y-auto xl:overflow-x-hidden',
@@ -94,9 +99,9 @@ const joinFormUrl = 'https://forms.gle/TBKPRekxr4wN6EJp9' // ← Replace with yo
         </template>
 
         <template #default>
-          <!-- Malayalam tagline (FML Leela) -->
-          <p class="font-[Leela] text-2xl text-muted">
-            -tIc-f-¯nse Hm-¸-¬- tkmgvkv Pm-hm-kv{In-]väv I-½yq-Wn-än-
+          <!-- The pitch -->
+          <p class="text-muted max-w-md">
+            JavaScript culture in Kerala is huge, but scattered. We're building a space for JS folks to come closer together.
           </p>
 
           <!-- Upcoming Event Card -->
@@ -138,6 +143,38 @@ const joinFormUrl = 'https://forms.gle/TBKPRekxr4wN6EJp9' // ← Replace with yo
               variant="ghost"
               size="md"
               :aria-label="link.label"
+            />
+          </div>
+
+          <!-- From the blog -->
+          <div class="pt-6 border-t border-default max-w-sm">
+            <h3 class="text-sm font-medium text-muted mb-3">
+              From the blog
+            </h3>
+            <a
+              href="https://blog.malabarjs.org/why-start-another-javascript-community-in-kerala-the-honest-answer/"
+              target="_blank"
+              class="block group"
+            >
+              <article class="bg-elevated border border-default rounded-lg p-4 transition-colors hover:border-primary">
+                <time class="text-xs text-muted font-mono">04 Dec, 2025</time>
+                <h4 class="font-semibold text-highlighted mt-1 group-hover:text-primary transition-colors">
+                  Why Start Another JavaScript Community in Kerala? (The Honest Answer)
+                </h4>
+                <p class="text-sm text-muted mt-1.5 line-clamp-2">
+                  The honest answer.
+                </p>
+              </article>
+            </a>
+            <UButton
+              label="Read the blog"
+              icon="i-lucide-arrow-right"
+              trailing
+              variant="link"
+              to="https://blog.malabarjs.org"
+              target="_blank"
+              size="sm"
+              class="mt-3 -ms-2.5 mb-3"
             />
           </div>
         </template>
