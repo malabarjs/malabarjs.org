@@ -8,7 +8,9 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         date: z.string(),
-        tag: z.string().optional()
+        tag: z.string().optional(),
+        image: z.string().optional(),
+        imageAlt: z.string().optional()
       })
     })
   }

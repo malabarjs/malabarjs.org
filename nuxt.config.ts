@@ -30,11 +30,24 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    joinWebhookUrl: '',
+    // Seed value used the first time the site boots with empty storage.
+    // After that, the persisted counter is the source of truth.
+    memberCountSeed: '31'
+  },
+
   routeRules: {
     '/': { prerender: true }
   },
 
   compatibilityDate: '2025-01-15',
+
+  nitro: {
+    storage: {
+      data: { driver: 'fs', base: './.data/storage' }
+    }
+  },
 
   eslint: {
     config: {
