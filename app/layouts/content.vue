@@ -73,4 +73,3 @@
     </footer>
   </div>
 </template>
-

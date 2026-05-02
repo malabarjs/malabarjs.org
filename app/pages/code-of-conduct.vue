@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Code of Conduct — MalabarJS'
+  title: 'Code of Conduct - MalabarJS'
 })
 </script>
 
@@ -17,7 +17,10 @@ useHead({
 
       <div class="prose prose-sm text-muted space-y-6">
         <p class="text-lg text-highlighted">
-          MalabarJS is committed to providing a welcoming, safe, and inclusive environment for everyone, regardless of experience level, gender identity, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
+          MalabarJS is committed to providing a welcoming, safe, and inclusive
+          environment for everyone, regardless of experience level, gender
+          identity, sexual orientation, disability, personal appearance, body
+          size, race, ethnicity, age, religion, or nationality.
         </p>
 
         <h2 class="text-xl font-semibold text-highlighted mt-8">
@@ -73,20 +76,25 @@ useHead({
           Reporting Issues
         </h2>
         <p>
-          If you experience or witness unacceptable behavior, please report it as soon as possible:
+          If you experience or witness unacceptable behavior, please report it
+          as soon as possible:
         </p>
         <p>
-          DM us on X: <a href="https://x.com/malabarjs" target="_blank" class="text-primary hover:underline">@malabarjs</a>
+          DM us on X:
+          <a
+            href="https://x.com/malabarjs"
+            target="_blank"
+            class="text-primary hover:underline"
+          >@malabarjs</a>
         </p>
-        <p>
-          All reports will be handled with discretion and confidentiality.
-        </p>
+        <p>All reports will be handled with discretion and confidentiality.</p>
 
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Enforcement
         </h2>
         <p>
-          Community organizers will take appropriate action in response to any behavior that violates this Code of Conduct. Actions may include:
+          Community organizers will take appropriate action in response to any
+          behavior that violates this Code of Conduct. Actions may include:
         </p>
         <ul class="space-y-2 list-disc list-inside">
           <li>A verbal or written warning</li>
@@ -99,7 +107,13 @@ useHead({
           Attribution
         </h2>
         <p>
-          This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org/" target="_blank" class="text-primary hover:underline">Contributor Covenant</a> and inspired by community guidelines from JS communities worldwide.
+          This Code of Conduct is adapted from the
+          <a
+            href="https://www.contributor-covenant.org/"
+            target="_blank"
+            class="text-primary hover:underline"
+          >Contributor Covenant</a>
+          and inspired by community guidelines from JS communities worldwide.
         </p>
 
         <div class="mt-12 pt-6 border-t border-default">
@@ -111,4 +125,3 @@ useHead({
     </div>
   </main>
 </template>
-

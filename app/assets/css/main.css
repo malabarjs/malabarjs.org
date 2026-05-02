@@ -7,7 +7,7 @@
   src: url('/FML-Nanditha/FML-Nanditha.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -15,7 +15,7 @@
   src: url('/FML-Nanditha/FML-Nanditha-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 /* FML Leela - for tagline */

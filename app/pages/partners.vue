@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Community Partners — MalabarJS'
+  title: 'Community Partners - MalabarJS'
 })
 </script>
 
@@ -23,13 +23,16 @@ useHead({
           Why Partner With Us?
         </h2>
         <p>
-          MalabarJS is building a vibrant community of JavaScript developers across Kerala. By partnering with us, you can:
+          MalabarJS is building a vibrant community of JavaScript developers
+          across Kerala. By partnering with us, you can:
         </p>
         <ul class="space-y-2 list-disc list-inside">
           <li>Reach talented JS developers in Kerala</li>
           <li>Support the local open-source ecosystem</li>
           <li>Showcase your brand at meetups and events</li>
-          <li>Connect with potential hires who are actively learning and building</li>
+          <li>
+            Connect with potential hires who are actively learning and building
+          </li>
           <li>Give back to the developer community</li>
         </ul>
 
@@ -43,7 +46,8 @@ useHead({
               🎤 Event Sponsor
             </h3>
             <p class="mt-2">
-              Sponsor a meetup or workshop. Your brand featured in event promotion, on-site presence, and post-event content.
+              Sponsor a meetup or workshop. Your brand featured in event
+              promotion, on-site presence, and post-event content.
             </p>
           </div>
 
@@ -52,7 +56,8 @@ useHead({
               🏠 Venue Partner
             </h3>
             <p class="mt-2">
-              Host our meetups at your space. Perfect for co-working spaces, tech companies, or educational institutions.
+              Host our meetups at your space. Perfect for co-working spaces,
+              tech companies, or educational institutions.
             </p>
           </div>
 
@@ -61,7 +66,8 @@ useHead({
               🤝 Community Partner
             </h3>
             <p class="mt-2">
-              Cross-promotion with other tech communities, conferences, or developer groups. Let's grow together.
+              Cross-promotion with other tech communities, conferences, or
+              developer groups. Let's grow together.
             </p>
           </div>
 
@@ -70,7 +76,8 @@ useHead({
               📚 Learning Partner
             </h3>
             <p class="mt-2">
-              Provide resources, courses, or tools for our community members. Help developers level up.
+              Provide resources, courses, or tools for our community members.
+              Help developers level up.
             </p>
           </div>
         </div>
@@ -99,7 +106,9 @@ useHead({
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Current Partners
         </h2>
-        <div class="bg-elevated border border-dashed border-default rounded-lg p-8 text-center">
+        <div
+          class="bg-elevated border border-dashed border-default rounded-lg p-8 text-center"
+        >
           <p class="text-muted">
             Be our first partner! 🥥
           </p>
@@ -108,11 +117,14 @@ useHead({
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Interested?
         </h2>
+        <p>Reach out to discuss partnership opportunities:</p>
         <p>
-          Reach out to discuss partnership opportunities:
-        </p>
-        <p>
-          DM us on X: <a href="https://x.com/malabarjs" target="_blank" class="text-primary hover:underline">@malabarjs</a>
+          DM us on X:
+          <a
+            href="https://x.com/malabarjs"
+            target="_blank"
+            class="text-primary hover:underline"
+          >@malabarjs</a>
         </p>
 
         <div class="mt-8">
@@ -127,11 +139,12 @@ useHead({
 
         <div class="mt-12 pt-6 border-t border-default">
           <p class="text-sm text-muted">
-            We're selective about partnerships to maintain community trust. We prioritize partners who genuinely want to support developers over pure brand exposure.
+            We're selective about partnerships to maintain community trust. We
+            prioritize partners who genuinely want to support developers over
+            pure brand exposure.
           </p>
         </div>
       </div>
     </div>
   </main>
 </template>
-

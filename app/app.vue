@@ -3,7 +3,9 @@ useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/official-white-logo.svg' },
-    { rel: 'icon', type: 'image/png', href: '/official-white-logo.png' }
+    { rel: 'icon', type: 'image/png', href: '/official-white-logo.png' },
+    { rel: 'preload', href: '/FML-Nanditha/FML-Nanditha.otf', as: 'font', type: 'font/otf', crossorigin: 'anonymous' },
+    { rel: 'preload', href: '/FML-Nanditha/FML-Nanditha-Bold.otf', as: 'font', type: 'font/otf', crossorigin: 'anonymous' }
   ],
   htmlAttrs: {
     lang: 'en'

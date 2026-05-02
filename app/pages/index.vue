@@ -1,8 +1,27 @@
 <script setup lang="ts">
-// Query all activities from /content/activities/, sorted by date descending
 const { data: activities } = await useAsyncData('activities', () =>
   queryCollection('activities').order('date', 'DESC').all()
 )
+
+onMounted(() => {
+  if (typeof window === 'undefined') return
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  const { gsap } = useGsap()
+  const items = document.querySelectorAll<HTMLElement>('[data-timeline-item]')
+  items.forEach((item) => {
+    gsap.from(item, {
+      y: 24,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    })
+  })
+})
 </script>
 
 <template>
@@ -31,7 +50,34 @@ const { data: activities } = await useAsyncData('activities', () =>
       }"
     >
       <template #body>
-        <ContentRenderer :value="activity" />
+        <div data-timeline-item>
+          <NuxtLink
+            v-if="activity.image"
+            :to="`/activities/${activity.stem}`"
+            class="block mb-4 overflow-hidden rounded-lg border border-default group"
+          >
+            <img
+              :src="activity.image"
+              :alt="activity.imageAlt || activity.title"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
+            >
+          </NuxtLink>
+          <ContentRenderer :value="activity" />
+          <div class="mt-4">
+            <UButton
+              :to="`/activities/${activity.stem}`"
+              icon="i-lucide-arrow-right"
+              trailing
+              variant="link"
+              size="sm"
+              class="-ms-2.5"
+            >
+              Read more
+            </UButton>
+          </div>
+        </div>
       </template>
     </UChangelogVersion>
 

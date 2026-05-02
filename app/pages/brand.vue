@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Brand Guidelines — MalabarJS'
+  title: 'Brand Guidelines - MalabarJS'
 })
 
 const brandKitUrl = '/logo-guidelines.zip'
@@ -17,16 +17,15 @@ const brandKitUrl = '/logo-guidelines.zip'
         Brand Guidelines
       </h1>
       <p class="text-lg text-muted mb-12">
-        Guidelines for using MalabarJS branding in your content, events, or partnerships.
+        Guidelines for using MalabarJS branding in your content, events, or
+        partnerships.
       </p>
 
       <div class="prose prose-sm text-muted space-y-6">
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Download Brand Kit
         </h2>
-        <p>
-          Get logos, colors, and assets in one package:
-        </p>
+        <p>Get logos, colors, and assets in one package:</p>
         <div class="mt-4">
           <UButton
             label="Download Brand Kit (.zip)"
@@ -37,14 +36,17 @@ const brandKitUrl = '/logo-guidelines.zip'
           />
         </div>
         <p class="text-sm mt-2">
-          Includes: Logo (SVG, PNG), color palette, typography specs, usage guidelines (PDF)
+          Includes: Logo (SVG, PNG), color palette, typography specs, usage
+          guidelines (PDF)
         </p>
 
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Logo
         </h2>
         <div class="grid grid-cols-2 gap-4 mt-4">
-          <div class="bg-white border border-default rounded-lg p-6 flex flex-col items-center justify-center gap-3">
+          <div
+            class="bg-white border border-default rounded-lg p-6 flex flex-col items-center justify-center gap-3"
+          >
             <img
               src="/official-gray-logo.svg"
               alt="MalabarJS Logo (Gray)"
@@ -52,7 +54,9 @@ const brandKitUrl = '/logo-guidelines.zip'
             >
             <span class="text-xs text-gray-500">For light backgrounds</span>
           </div>
-          <div class="bg-gray-900 border border-default rounded-lg p-6 flex flex-col items-center justify-center gap-3">
+          <div
+            class="bg-gray-900 border border-default rounded-lg p-6 flex flex-col items-center justify-center gap-3"
+          >
             <img
               src="/official-white-logo.svg"
               alt="MalabarJS Logo (White)"
@@ -62,7 +66,8 @@ const brandKitUrl = '/logo-guidelines.zip'
           </div>
         </div>
         <p class="text-sm mt-2">
-          Use the appropriate logo variant based on background. Maintain clear space around the logo.
+          Use the appropriate logo variant based on background. Maintain clear
+          space around the logo.
         </p>
 
         <h2 class="text-xl font-semibold text-highlighted mt-8">
@@ -71,18 +76,30 @@ const brandKitUrl = '/logo-guidelines.zip'
         <div class="grid grid-cols-3 gap-4 mt-4">
           <div>
             <div class="h-20 rounded-lg bg-[#00DC82]" />
-            <p class="text-sm mt-2 font-mono">Primary</p>
-            <p class="text-xs font-mono text-muted">#00DC82</p>
+            <p class="text-sm mt-2 font-mono">
+              Primary
+            </p>
+            <p class="text-xs font-mono text-muted">
+              #00DC82
+            </p>
           </div>
           <div>
             <div class="h-20 rounded-lg bg-slate-900 border border-default" />
-            <p class="text-sm mt-2 font-mono">Dark</p>
-            <p class="text-xs font-mono text-muted">#0f172a</p>
+            <p class="text-sm mt-2 font-mono">
+              Dark
+            </p>
+            <p class="text-xs font-mono text-muted">
+              #0f172a
+            </p>
           </div>
           <div>
             <div class="h-20 rounded-lg bg-slate-100 border border-default" />
-            <p class="text-sm mt-2 font-mono">Light</p>
-            <p class="text-xs font-mono text-muted">#f1f5f9</p>
+            <p class="text-sm mt-2 font-mono">
+              Light
+            </p>
+            <p class="text-xs font-mono text-muted">
+              #f1f5f9
+            </p>
           </div>
         </div>
 
@@ -122,9 +139,7 @@ const brandKitUrl = '/logo-guidelines.zip'
         <h2 class="text-xl font-semibold text-highlighted mt-8">
           Social Media
         </h2>
-        <p>
-          When mentioning MalabarJS:
-        </p>
+        <p>When mentioning MalabarJS:</p>
         <ul class="space-y-2 list-disc list-inside">
           <li>X/Twitter: <span class="font-mono">@malabarjs</span></li>
           <li>Instagram: <span class="font-mono">@malabar.js</span></li>
@@ -139,7 +154,12 @@ const brandKitUrl = '/logo-guidelines.zip'
           Need assets in a different format or have questions about brand usage?
         </p>
         <p>
-          DM us on X: <a href="https://x.com/malabarjs" target="_blank" class="text-primary hover:underline">@malabarjs</a>
+          DM us on X:
+          <a
+            href="https://x.com/malabarjs"
+            target="_blank"
+            class="text-primary hover:underline"
+          >@malabarjs</a>
         </p>
 
         <div class="mt-12 pt-6 border-t border-default">
@@ -151,4 +171,3 @@ const brandKitUrl = '/logo-guidelines.zip'
     </div>
   </main>
 </template>
-
