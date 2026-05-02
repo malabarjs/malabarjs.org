@@ -261,13 +261,8 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  try {
-    const storage = useStorage('data')
-    const current = (await storage.getItem<number>('members:count')) ?? 0
-    await storage.setItem('members:count', current + 1)
-  } catch (err) {
-    console.error('[api/join] member counter update failed', err)
-  }
+  // Member count is read live from the published Google Sheet CSV in
+  // /api/stats — no local counter to maintain.
 
   if (joinWebhookUrl) {
     try {

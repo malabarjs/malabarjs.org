@@ -32,9 +32,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     joinWebhookUrl: '',
-    // Seed value used the first time the site boots with empty storage.
-    // After that, the persisted counter is the source of truth.
-    memberCountSeed: '31'
+    // Published Google Sheet CSV URL — source of truth for member count.
+    // File → Share → Publish to web → CSV.
+    memberSheetCsvUrl: '',
+    // Fallback shown if the sheet URL is unset / unreachable.
+    memberCountFallback: '31'
   },
 
   routeRules: {
@@ -42,12 +44,6 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-01-15',
-
-  nitro: {
-    storage: {
-      data: { driver: 'fs', base: './.data/storage' }
-    }
-  },
 
   eslint: {
     config: {
