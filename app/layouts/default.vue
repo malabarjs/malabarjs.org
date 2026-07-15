@@ -37,8 +37,10 @@ const upcomingEvent = {
   title: 'First MalabarJS Meetup',
   date: 'Aug 22, 2026',
   location: 'Kerala',
-  link: null // Add event link when available
+  link: 'https://luma.com/a9xt40nb'
 }
+
+const lumaCalendarUrl = 'https://lu.ma/malabarjs'
 
 const involveLinks = [
   { label: 'Speak', icon: 'i-lucide-mic', to: '/cfp' },
@@ -140,6 +142,27 @@ onMounted(() => {
             <p class="text-sm text-muted mt-1">
               {{ upcomingEvent.date }} · {{ upcomingEvent.location }}
             </p>
+            <div
+              v-if="upcomingEvent.link"
+              class="mt-3 flex flex-wrap items-center gap-2"
+            >
+              <UButton
+                label="RSVP on Luma"
+                icon="i-lucide-ticket"
+                size="sm"
+                :to="upcomingEvent.link"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+              <UButton
+                label="All events"
+                variant="ghost"
+                size="sm"
+                :to="lumaCalendarUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            </div>
           </div>
 
           <!-- Action buttons -->
@@ -270,6 +293,14 @@ onMounted(() => {
             class="text-muted hover:text-primary transition-colors"
           >
             Discussions
+          </a>
+          <a
+            href="https://lu.ma/malabarjs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Events
           </a>
         </nav>
         <p class="text-xs text-muted">

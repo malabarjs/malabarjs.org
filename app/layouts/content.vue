@@ -97,6 +97,14 @@
           >
             Discussions
           </a>
+          <a
+            href="https://lu.ma/malabarjs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Events
+          </a>
         </div>
         <p class="text-sm text-muted mt-4">
           © {{ new Date().getFullYear() }} MalabarJS. Built with 🥥 in Kerala.
