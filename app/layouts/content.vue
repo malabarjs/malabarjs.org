@@ -89,6 +89,14 @@
           >
             Blog
           </a>
+          <a
+            href="https://github.com/orgs/malabarjs/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Discussions
+          </a>
         </div>
         <p class="text-sm text-muted mt-4">
           © {{ new Date().getFullYear() }} MalabarJS. Built with 🥥 in Kerala.

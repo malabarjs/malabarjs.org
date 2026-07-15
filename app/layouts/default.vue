@@ -11,6 +11,11 @@ const socialLinks = [
     to: 'https://github.com/malabarjs'
   },
   {
+    label: 'Discussions',
+    icon: 'i-lucide-messages-square',
+    to: 'https://github.com/orgs/malabarjs/discussions'
+  },
+  {
     label: 'X',
     icon: 'i-simple-icons-x',
     to: 'https://x.com/malabarjs'
@@ -29,8 +34,8 @@ const socialLinks = [
 
 // Upcoming event - update this when you have events scheduled
 const upcomingEvent = {
-  title: 'First Meetup Coming Soon',
-  date: 'TBA',
+  title: 'First MalabarJS Meetup',
+  date: 'Aug 22, 2026',
   location: 'Kerala',
   link: null // Add event link when available
 }
@@ -95,14 +100,17 @@ onMounted(() => {
           </NuxtLink>
         </template>
 
+        <!-- UPageSection already wraps #title in a heading element;
+             nesting another heading inside is invalid HTML and breaks
+             hydration, so this is a span. -->
         <template #title>
-          <h1
+          <span
             data-hero-anim
-            class="text-4xl font-bold text-highlighted"
+            class="block text-4xl font-bold text-highlighted"
           >
             Malabar JS
             <span class="font-[Nanditha] text-4xl font-bold ms-2">(a-e-_m-À-)</span>
-          </h1>
+          </span>
         </template>
 
         <template #default>
@@ -117,7 +125,7 @@ onMounted(() => {
           <!-- Upcoming Event Card -->
           <div
             data-hero-anim
-            class="bg-elevated border border-default rounded-lg p-4 max-w-sm"
+            class="bg-elevated border border-default rounded-lg p-4 w-full max-w-sm self-start"
           >
             <div class="flex items-center gap-2 text-primary text-xs font-medium mb-2">
               <UIcon
@@ -166,13 +174,13 @@ onMounted(() => {
           <!-- Live stats -->
           <div
             data-hero-anim
-            class="max-w-sm"
+            class="w-full max-w-sm self-start"
           >
             <LiveStats />
           </div>
 
           <!-- Social links -->
-          <div class="flex items-center gap-1 -ms-2.5">
+          <div class="flex items-center gap-1 -ms-2.5 self-start">
             <UButton
               v-for="link in socialLinks"
               :key="link.label"
@@ -255,6 +263,14 @@ onMounted(() => {
           >
             Brand
           </NuxtLink>
+          <a
+            href="https://github.com/orgs/malabarjs/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Discussions
+          </a>
         </nav>
         <p class="text-xs text-muted">
           © {{ new Date().getFullYear() }} MalabarJS · Made in Kerala 🥥
