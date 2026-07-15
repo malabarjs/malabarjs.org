@@ -14,6 +14,11 @@ export const cfpForm = defineForm({
     'Got something worth sharing? First talk or fiftieth - we want to hear it. We help first-time speakers shape their talk.',
   icon: 'i-lucide-mic',
   submitLabel: 'Submit talk',
+  aside: {
+    text: 'Want feedback on your idea before submitting?',
+    label: 'Start a GitHub Discussion',
+    to: 'https://github.com/orgs/malabarjs/discussions'
+  },
   success: {
     title: 'Talk submitted 🎤',
     message:

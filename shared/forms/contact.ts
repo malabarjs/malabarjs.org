@@ -8,6 +8,11 @@ export const contactForm = defineForm({
     'Questions, ideas, partnerships, or just want to say hi - drop us a line and we\'ll get back to you.',
   icon: 'i-lucide-mail',
   submitLabel: 'Send message',
+  aside: {
+    text: 'Got a question the community could answer?',
+    label: 'Ask in GitHub Discussions',
+    to: 'https://github.com/orgs/malabarjs/discussions'
+  },
   success: {
     title: 'Message sent 📬',
     message:

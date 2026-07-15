@@ -37,6 +37,18 @@ useHead({
         <p class="text-muted">
           {{ config!.description }}
         </p>
+        <p
+          v-if="config!.aside"
+          class="text-sm text-muted mt-3"
+        >
+          {{ config!.aside.text }}
+          <a
+            :href="config!.aside.to"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline"
+          >{{ config!.aside.label }}</a>
+        </p>
       </div>
 
       <FormEngine :config="config!" />

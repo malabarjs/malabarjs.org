@@ -45,6 +45,12 @@ export interface FormConfig {
   description: string
   icon?: string
   submitLabel?: string
+  /** Optional pointer shown under the description, e.g. to GitHub Discussions. */
+  aside?: {
+    text: string
+    label: string
+    to: string
+  }
   success: {
     title: string
     message: string
