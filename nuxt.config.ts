@@ -31,11 +31,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    joinWebhookUrl: '',
-    // Published Google Sheet CSV URL — source of truth for member count.
-    // File → Share → Publish to web → CSV.
-    memberSheetCsvUrl: '',
-    // Fallback shown if the sheet URL is unset / unreachable.
+    // Optional webhook (Discord-compatible) notified on new form submissions.
+    formsWebhookUrl: '',
+    // Member count shown if the database is unset / unreachable.
     memberCountFallback: '31'
   },
 

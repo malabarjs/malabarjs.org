@@ -58,6 +58,30 @@
           >
             Brand
           </NuxtLink>
+          <NuxtLink
+            to="/cfp"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Speak
+          </NuxtLink>
+          <NuxtLink
+            to="/volunteer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Volunteer
+          </NuxtLink>
+          <NuxtLink
+            to="/sponsor"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Sponsor
+          </NuxtLink>
+          <NuxtLink
+            to="/contact"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Contact
+          </NuxtLink>
           <a
             href="https://blog.malabarjs.org"
             target="_blank"

@@ -1,73 +1,69 @@
-# Nuxt Changelog Template
+# malabarjs.org
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
-
-Use this template to create your own changelog with [Nuxt UI](https://ui.nuxt.com).
-
-- [Live demo](https://changelog-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/getting-started/installation/nuxt)
-
-<a href="https://changelog-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/changelog-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png">
-    <img alt="Nuxt Changelog Template" src="https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png">
-  </picture>
-</a>
-
-## Quick Start
-
-```bash [Terminal]
-npm create nuxt@latest -- -t github:nuxt-ui-templates/changelog
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=changelog&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fchangelog&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fchangelog-dark.png&demo-url=https%3A%2F%2Fchangelog-template.nuxt.dev%2F&demo-title=Nuxt%20Changelog%20Template&demo-description=A%20changelog%20template%20to%20display%20your%20repository%20releases%20notes%20from%20GitHub%20powered%20by%20Nuxt%20MDC.)
-
-## Config
-
-To customize the GitHub repository that the changelog fetches releases from, update the `repository` key in `app/app.config.ts`:
-
-```ts [app/app.config.ts]
-// app/app.config.ts
-export default defineAppConfig({
-  repository: 'nuxt/ui' // Change this to your GitHub repository (e.g., 'facebook/react')
-})
-```
+The website of [MalabarJS](https://malabarjs.org) - a community for JavaScript
+developers in Kerala, India. Built with [Nuxt 4](https://nuxt.com) and
+[Nuxt UI](https://ui.nuxt.com).
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
 pnpm install
-```
+cp .env.example .env
 
-## Development Server
+# Local Postgres for the form engine
+docker compose up -d
+pnpm db:migrate
 
-Start the development server on `http://localhost:3000`:
-
-```bash
 pnpm dev
 ```
 
-## Production
+## Form engine
 
-Build the application for production:
+Forms (`/cfp`, `/volunteer`, `/sponsor`, `/contact`) are config-driven. Each
+form is a `defineForm()` config in `shared/forms/` with its fields, steps, and
+Zod schemas - shared by client and server validation. The engine
+(`app/components/form/Engine.vue`) renders any config with multi-step
+progress, inline validation, draft autosave, and a success screen.
+
+Adding a new form:
+
+1. Create `shared/forms/<slug>.ts` with `defineForm({ slug, title, steps, … })`.
+2. Register it in `shared/forms/index.ts`.
+
+That's it - the page (`/<slug>`), API endpoint (`POST /api/forms/<slug>`),
+validation, and persistence all pick it up automatically.
+
+Submissions are stored in Postgres (`form_submissions`, one JSONB row per
+submission) via [Drizzle ORM](https://orm.drizzle.team). The connection is
+provider-agnostic: any standard Postgres works via `DATABASE_URL` (Neon,
+Railway, RDS, Docker, self-hosted…).
 
 ```bash
-pnpm build
+pnpm db:generate   # generate migrations after schema changes
+pnpm db:migrate    # apply migrations
+pnpm db:studio     # browse data
 ```
 
-Locally preview production build:
+## Environment
+
+| Variable | Purpose |
+| --- | --- |
+| `DATABASE_URL` | Postgres connection string for form submissions and stats |
+| `NUXT_FORMS_WEBHOOK_URL` | Optional Discord-compatible webhook pinged on new submissions |
+
+The member count comes from the database (distinct emails across all form
+submissions). Legacy members from the old Google Sheet can be imported once:
 
 ```bash
-pnpm preview
+DATABASE_URL=postgres://… node scripts/import-members.mjs <csv-url-or-file>
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Scripts
 
-## Renovate integration
-
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+```bash
+pnpm dev         # start dev server
+pnpm build       # production build
+pnpm preview     # preview production build
+pnpm lint        # eslint
+pnpm typecheck   # vue-tsc
+```

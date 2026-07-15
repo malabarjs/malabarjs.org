@@ -35,13 +35,12 @@ const upcomingEvent = {
   link: null // Add event link when available
 }
 
-const joinOpen = ref(false)
-
-function onJoinSuccess() {
-  window.setTimeout(() => {
-    joinOpen.value = false
-  }, 2200)
-}
+const involveLinks = [
+  { label: 'Speak', icon: 'i-lucide-mic', to: '/cfp' },
+  { label: 'Volunteer', icon: 'i-lucide-hand-heart', to: '/volunteer' },
+  { label: 'Sponsor', icon: 'i-lucide-handshake', to: '/sponsor' },
+  { label: 'Contact', icon: 'i-lucide-mail', to: '/contact' }
+]
 
 const heroRoot = ref<HTMLElement | null>(null)
 
@@ -138,14 +137,30 @@ onMounted(() => {
           <!-- Action buttons -->
           <div
             data-hero-anim
-            class="flex flex-wrap items-center gap-3"
+            class="space-y-3"
           >
-            <UButton
-              label="Join the Community"
-              icon="i-lucide-users"
-              size="lg"
-              @click="joinOpen = true"
-            />
+            <div class="flex flex-wrap items-center gap-3">
+              <UButton
+                label="Subscribe to the Newsletter"
+                icon="i-lucide-mail-plus"
+                size="lg"
+                to="https://blog.malabarjs.org/subscribe/"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <UButton
+                v-for="link in involveLinks"
+                :key="link.to"
+                :label="link.label"
+                :icon="link.icon"
+                :to="link.to"
+                variant="subtle"
+                color="neutral"
+                size="sm"
+              />
+            </div>
           </div>
 
           <!-- Live stats -->
@@ -155,17 +170,6 @@ onMounted(() => {
           >
             <LiveStats />
           </div>
-
-          <USlideover
-            v-model:open="joinOpen"
-            title="Join MalabarJS"
-            description="Tell us a bit about you. We read every submission."
-            :ui="{ content: 'sm:max-w-lg' }"
-          >
-            <template #body>
-              <JoinForm @success="onJoinSuccess" />
-            </template>
-          </USlideover>
 
           <!-- Social links -->
           <div class="flex items-center gap-1 -ms-2.5">
@@ -194,8 +198,6 @@ onMounted(() => {
       </section>
     </div>
 
-    <MembersMap />
-
     <footer class="border-t border-default px-4 sm:px-6 py-6">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
         <nav class="flex flex-wrap gap-x-4 gap-y-2">
@@ -222,6 +224,30 @@ onMounted(() => {
             class="text-muted hover:text-primary transition-colors"
           >
             Partners
+          </NuxtLink>
+          <NuxtLink
+            to="/cfp"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Speak
+          </NuxtLink>
+          <NuxtLink
+            to="/volunteer"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Volunteer
+          </NuxtLink>
+          <NuxtLink
+            to="/sponsor"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Sponsor
+          </NuxtLink>
+          <NuxtLink
+            to="/contact"
+            class="text-muted hover:text-primary transition-colors"
+          >
+            Contact
           </NuxtLink>
           <NuxtLink
             to="/brand"
