@@ -82,9 +82,9 @@ onMounted(() => {
           root: 'border-b border-default xl:border-b-0',
           container: 'h-full items-center justify-center py-16 sm:py-24 lg:py-32',
           wrapper: 'flex flex-col',
-          headline: 'mb-6',
-          title: 'text-left text-4xl',
-          description: 'text-left max-w-lg',
+          headline: 'mb-6 flex justify-center xl:justify-start',
+          title: 'text-center xl:text-left text-4xl',
+          description: 'text-center xl:text-left max-w-lg',
           links: 'gap-1 justify-start -ms-2.5'
         }"
       >
@@ -97,7 +97,10 @@ onMounted(() => {
         </template>
 
         <template #headline>
-          <NuxtLink to="/">
+          <NuxtLink
+            to="/"
+            class="inline-flex"
+          >
             <AppLogo class="w-auto h-24 shrink-0 text-highlighted" />
           </NuxtLink>
         </template>
@@ -119,7 +122,7 @@ onMounted(() => {
           <!-- The pitch -->
           <p
             data-hero-anim
-            class="text-muted max-w-md"
+            class="text-muted max-w-md text-center xl:text-left self-center xl:self-start"
           >
             JavaScript culture in Kerala is huge, but scattered. We're building a space for JS folks to come closer together.
           </p>
@@ -127,7 +130,7 @@ onMounted(() => {
           <!-- Upcoming Event Card -->
           <div
             data-hero-anim
-            class="bg-elevated border border-default rounded-lg p-4 w-full max-w-sm self-start"
+            class="bg-elevated border border-default rounded-lg p-4 w-full max-w-sm self-center xl:self-start"
           >
             <div class="flex items-center gap-2 text-primary text-xs font-medium mb-2">
               <UIcon
@@ -168,9 +171,9 @@ onMounted(() => {
           <!-- Action buttons -->
           <div
             data-hero-anim
-            class="space-y-3"
+            class="w-full pt-2 self-center xl:self-start"
           >
-            <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap items-center justify-center xl:justify-start gap-3">
               <UButton
                 label="Subscribe to the Newsletter"
                 icon="i-lucide-mail-plus"
@@ -180,7 +183,7 @@ onMounted(() => {
                 rel="noopener noreferrer"
               />
             </div>
-            <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center xl:justify-start gap-2 mt-4">
               <UButton
                 v-for="link in involveLinks"
                 :key="link.to"
@@ -197,13 +200,13 @@ onMounted(() => {
           <!-- Live stats -->
           <div
             data-hero-anim
-            class="w-full max-w-sm self-start"
+            class="w-full max-w-sm self-center xl:self-start"
           >
             <LiveStats />
           </div>
 
           <!-- Social links -->
-          <div class="flex items-center gap-1 -ms-2.5 self-start">
+          <div class="flex items-center gap-1 xl:-ms-2.5 self-center xl:self-start">
             <UButton
               v-for="link in socialLinks"
               :key="link.label"

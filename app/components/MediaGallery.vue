@@ -13,7 +13,7 @@ const items = [
 </script>
 
 <template>
-  <section class="pt-6 border-t border-default w-full max-w-sm self-start">
+  <section class="pt-6 border-t border-default w-full max-w-sm self-center xl:self-start">
     <h3 class="text-sm font-medium text-muted mb-3">
       From the community
     </h3>

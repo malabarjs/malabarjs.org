@@ -19,7 +19,7 @@ const fmt = (iso: string) => {
 </script>
 
 <template>
-  <div class="pt-6 border-t border-default w-full max-w-sm self-start">
+  <div class="pt-6 border-t border-default w-full max-w-sm self-center xl:self-start">
     <h3 class="text-sm font-medium text-muted mb-3">
       From the blog
     </h3>
