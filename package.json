@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
+    "test": "vitest run",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
@@ -32,6 +33,7 @@
     "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3",
+    "vitest": "^4.1.10",
     "vue-tsc": "^3.2.7"
   },
   "packageManager": "pnpm@10.23.0"
