@@ -1,4 +1,4 @@
-import { touchActive, countActive } from '../utils/active'
+import { touchPresence, countPresence } from '../utils/presence'
 
 export default defineEventHandler(async (event) => {
   const cookieName = 'mjs_v'
@@ -13,6 +13,6 @@ export default defineEventHandler(async (event) => {
       path: '/'
     })
   }
-  touchActive(visitor)
-  return { active: countActive() }
+  await touchPresence(visitor)
+  return { active: await countPresence() }
 })

@@ -1,4 +1,12 @@
-import { index, jsonb, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core'
+import {
+  index,
+  integer,
+  jsonb,
+  pgTable,
+  text,
+  timestamp,
+  uuid
+} from 'drizzle-orm/pg-core'
 
 /**
  * One table for every form. The form's Zod schema (shared/forms) validates
@@ -24,3 +32,19 @@ export const formSubmissions = pgTable(
 
 export type FormSubmission = typeof formSubmissions.$inferSelect
 export type NewFormSubmission = typeof formSubmissions.$inferInsert
+
+/**
+ * Fixed-window rate limiting shared across serverless instances.
+ * Keys are `<scope>:<sha256(ip)>` - raw IPs are never stored.
+ */
+export const rateLimits = pgTable('rate_limits', {
+  key: text('key').primaryKey(),
+  count: integer('count').notNull(),
+  resetAt: timestamp('reset_at', { withTimezone: true }).notNull()
+})
+
+/** Active-visitor heartbeats, shared across serverless instances. */
+export const presence = pgTable('presence', {
+  visitor: text('visitor').primaryKey(),
+  lastSeen: timestamp('last_seen', { withTimezone: true }).notNull()
+})

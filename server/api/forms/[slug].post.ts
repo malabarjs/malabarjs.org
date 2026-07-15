@@ -1,21 +1,9 @@
 import { forms, formSchema } from '#shared/forms'
 import { useDb, schema } from '../../db'
+import { checkRateLimit, hashIp } from '../../utils/rate-limit'
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000
 const RATE_LIMIT_MAX = 5
-const hits = new Map<string, { count: number, reset: number }>()
-
-const rateLimit = (key: string) => {
-  const now = Date.now()
-  const entry = hits.get(key)
-  if (!entry || entry.reset < now) {
-    hits.set(key, { count: 1, reset: now + RATE_LIMIT_WINDOW_MS })
-    return true
-  }
-  if (entry.count >= RATE_LIMIT_MAX) return false
-  entry.count += 1
-  return true
-}
 
 const buildEmbed = (slug: string, data: Record<string, unknown>) => ({
   title: `New ${slug} submission`,
@@ -44,7 +32,12 @@ export default defineEventHandler(async (event) => {
       ?? event.node.req.socket?.remoteAddress
       ?? 'unknown'
 
-  if (!rateLimit(`${slug}:${ip}`)) {
+  const allowed = await checkRateLimit(
+    `${slug}:${hashIp(ip)}`,
+    RATE_LIMIT_MAX,
+    RATE_LIMIT_WINDOW_MS
+  )
+  if (!allowed) {
     setResponseHeader(event, 'Retry-After', 3600)
     throw createError({ statusCode: 429, statusMessage: 'Too many requests' })
   }
