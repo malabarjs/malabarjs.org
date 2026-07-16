@@ -41,6 +41,14 @@ const upcomingEvent = {
   details: '/activities/2026-08-22-first-meetup'
 }
 
+// Runtime flags from /admin - the homepage is prerendered, so these are
+// fetched client-side; until they arrive we render the committed default.
+const { data: flags } = useFetch<Record<string, unknown>>('/api/flags', {
+  server: false,
+  default: () => ({ eventMode: 'announced' })
+})
+const teaser = computed(() => flags.value?.eventMode === 'teaser')
+
 const involveLinks = [
   { label: 'Speak', icon: 'i-lucide-mic', to: '/cfp' },
   { label: 'Volunteer', icon: 'i-lucide-hand-heart', to: '/volunteer' },
@@ -138,33 +146,43 @@ onMounted(() => {
               />
               <span>UPCOMING</span>
             </div>
-            <h3 class="font-semibold text-highlighted">
-              {{ upcomingEvent.title }}
-            </h3>
-            <p class="text-sm text-muted mt-1">
-              {{ upcomingEvent.date }} · {{ upcomingEvent.location }}
-            </p>
-            <div
-              v-if="upcomingEvent.link"
-              class="mt-3 flex flex-wrap items-center gap-2"
-            >
-              <UButton
-                label="RSVP on Luma"
-                icon="i-lucide-ticket"
-                size="sm"
-                :to="upcomingEvent.link"
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-              <UButton
-                label="Details"
-                icon="i-lucide-arrow-right"
-                trailing
-                variant="ghost"
-                size="sm"
-                :to="upcomingEvent.details"
-              />
-            </div>
+            <template v-if="teaser">
+              <h3 class="font-semibold text-highlighted">
+                Something's coming 🤫
+              </h3>
+              <p class="text-sm text-muted mt-1">
+                {{ upcomingEvent.date }} · {{ upcomingEvent.location }}
+              </p>
+            </template>
+            <template v-else>
+              <h3 class="font-semibold text-highlighted">
+                {{ upcomingEvent.title }}
+              </h3>
+              <p class="text-sm text-muted mt-1">
+                {{ upcomingEvent.date }} · {{ upcomingEvent.location }}
+              </p>
+              <div
+                v-if="upcomingEvent.link"
+                class="mt-3 flex flex-wrap items-center gap-2"
+              >
+                <UButton
+                  label="RSVP on Luma"
+                  icon="i-lucide-ticket"
+                  size="sm"
+                  :to="upcomingEvent.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+                <UButton
+                  label="Details"
+                  icon="i-lucide-arrow-right"
+                  trailing
+                  variant="ghost"
+                  size="sm"
+                  :to="upcomingEvent.details"
+                />
+              </div>
+            </template>
           </div>
 
           <!-- Action buttons -->

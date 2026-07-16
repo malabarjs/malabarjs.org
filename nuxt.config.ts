@@ -31,6 +31,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Bearer token for /api/admin/flags. Unset = admin endpoint disabled.
+    adminToken: '',
     // Optional webhook (Discord-compatible) notified on new form submissions.
     formsWebhookUrl: '',
     // Member count shown if the database is unset / unreachable.
@@ -41,7 +43,9 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     // Content pages query the markdown database, which isn't available in
     // the serverless runtime - bake them at build time instead.
-    '/activities/**': { prerender: true }
+    '/activities/**': { prerender: true },
+    // Client-only admin controls; noindex is set in the page itself.
+    '/admin': { ssr: false }
   },
 
   compatibilityDate: '2025-01-15',

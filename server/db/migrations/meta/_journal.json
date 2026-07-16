@@ -15,6 +15,13 @@
       "when": 1784141814361,
       "tag": "0001_spotty_blonde_phantom",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784188217478,
+      "tag": "0002_supreme_gargoyle",
+      "breakpoints": true
     }
   ]
 }
