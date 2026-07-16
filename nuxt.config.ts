@@ -44,14 +44,14 @@ export default defineNuxtConfig({
     '/activities/**': { prerender: true }
   },
 
+  compatibilityDate: '2025-01-15',
+
   nitro: {
     prerender: {
       crawlLinks: true,
       routes: ['/']
     }
   },
-
-  compatibilityDate: '2025-01-15',
 
   eslint: {
     config: {

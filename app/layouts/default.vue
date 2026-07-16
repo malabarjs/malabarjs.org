@@ -38,7 +38,7 @@ const upcomingEvent = {
   date: 'Aug 22, 2026',
   location: 'Kerala',
   link: 'https://luma.com/a9xt40nb',
-  details: '/activities/2026-08-22.first-meetup'
+  details: '/activities/2026-08-22-first-meetup'
 }
 
 const involveLinks = [
