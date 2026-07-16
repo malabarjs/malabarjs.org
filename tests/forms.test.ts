@@ -13,6 +13,7 @@ const validSamples: Record<string, Record<string, unknown>> = {
     email: 'speaker@example.com',
     city: 'Kochi',
     github: '',
+    event: 'meetup-2026-08',
     talkTitle: 'A talk about testing',
     abstract:
       'A long enough abstract about what this talk covers and why it matters.',

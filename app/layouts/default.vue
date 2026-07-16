@@ -37,10 +37,9 @@ const upcomingEvent = {
   title: 'First MalabarJS Meetup',
   date: 'Aug 22, 2026',
   location: 'Kerala',
-  link: 'https://luma.com/a9xt40nb'
+  link: 'https://luma.com/a9xt40nb',
+  details: '/activities/2026-08-22.first-meetup'
 }
-
-const lumaCalendarUrl = 'https://lu.ma/malabarjs'
 
 const involveLinks = [
   { label: 'Speak', icon: 'i-lucide-mic', to: '/cfp' },
@@ -92,7 +91,7 @@ onMounted(() => {
           <SkyBg />
 
           <div
-            class="absolute -right-1/3 z-[-1] rounded-full bg-primary/15 blur-[200px] size-40 sm:size-72 transform -translate-y-1/2 top-1/2"
+            class="absolute right-0 xl:-right-1/3 z-[-1] rounded-full bg-primary/15 blur-[200px] size-40 sm:size-72 transform -translate-y-1/2 top-1/2"
           />
         </template>
 
@@ -158,12 +157,12 @@ onMounted(() => {
                 rel="noopener noreferrer"
               />
               <UButton
-                label="All events"
+                label="Details"
+                icon="i-lucide-arrow-right"
+                trailing
                 variant="ghost"
                 size="sm"
-                :to="lumaCalendarUrl"
-                target="_blank"
-                rel="noopener noreferrer"
+                :to="upcomingEvent.details"
               />
             </div>
           </div>

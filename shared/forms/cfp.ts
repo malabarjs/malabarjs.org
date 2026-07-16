@@ -66,6 +66,20 @@ export const cfpForm = defineForm({
       title: 'Your talk',
       fields: [
         {
+          name: 'event',
+          label: 'Which event is this for?',
+          type: 'radio',
+          required: true,
+          options: [
+            {
+              label: 'First MalabarJS Meetup - Aug 22, 2026',
+              value: 'meetup-2026-08'
+            },
+            { label: 'Any future event', value: 'future' }
+          ],
+          schema: oneOf(['meetup-2026-08', 'future'])
+        },
+        {
           name: 'talkTitle',
           label: 'Talk title',
           type: 'text',

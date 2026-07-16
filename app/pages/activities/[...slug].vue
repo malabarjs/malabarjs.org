@@ -8,8 +8,10 @@ const slug = Array.isArray(route.params.slug)
   ? route.params.slug.join('/')
   : String(route.params.slug ?? '')
 
+// Links use the slug without the collection folder; the stored stem
+// includes it ('activities/<slug>').
 const { data: activity } = await useAsyncData(`activity-${slug}`, () =>
-  queryCollection('activities').where('stem', '=', slug).first()
+  queryCollection('activities').where('stem', '=', `activities/${slug}`).first()
 )
 
 if (!activity.value) {

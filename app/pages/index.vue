@@ -3,6 +3,11 @@ const { data: activities } = await useAsyncData('activities', () =>
   queryCollection('activities').order('date', 'DESC').all()
 )
 
+// stem includes the collection folder ('activities/…'); strip it so links
+// resolve to /activities/<slug> instead of /activities/activities/<slug>.
+const activityLink = (stem: string) =>
+  `/activities/${stem.replace(/^activities\//, '')}`
+
 onMounted(() => {
   if (typeof window === 'undefined') return
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -53,7 +58,7 @@ onMounted(() => {
         <div data-timeline-item>
           <NuxtLink
             v-if="activity.image"
-            :to="`/activities/${activity.stem}`"
+            :to="activityLink(activity.stem)"
             class="block mb-4 overflow-hidden rounded-lg border border-default group"
           >
             <img
@@ -67,7 +72,7 @@ onMounted(() => {
           <ContentRenderer :value="activity" />
           <div class="mt-4">
             <UButton
-              :to="`/activities/${activity.stem}`"
+              :to="activityLink(activity.stem)"
               icon="i-lucide-arrow-right"
               trailing
               variant="link"

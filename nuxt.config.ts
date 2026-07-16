@@ -38,7 +38,17 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    // Content pages query the markdown database, which isn't available in
+    // the serverless runtime - bake them at build time instead.
+    '/activities/**': { prerender: true }
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
+    }
   },
 
   compatibilityDate: '2025-01-15',
