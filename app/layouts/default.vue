@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Upcoming event - update this when you have events scheduled
+import { UPCOMING_EVENT } from '#shared/event'
+
 const socialLinks = [
   {
     label: 'Blog',
@@ -31,9 +34,6 @@ const socialLinks = [
     to: 'https://www.linkedin.com/company/malabarjs/'
   }
 ]
-
-// Upcoming event - update this when you have events scheduled
-import { UPCOMING_EVENT } from '#shared/event'
 
 const upcomingEvent = {
   title: UPCOMING_EVENT.title,
