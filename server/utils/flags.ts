@@ -6,13 +6,13 @@ import { z } from 'zod'
  * table and are edited from /admin.
  */
 export const FLAG_SCHEMAS = {
-  // teaser: hide meetup details behind a "something's coming" card.
-  // announced: show the full event card with RSVP + details.
-  eventMode: z.enum(['teaser', 'announced'])
+  // auto: phase follows the dates in shared/event.ts (event-driven).
+  // Everything else is a manual override for emergencies.
+  eventMode: z.enum(['auto', 'quiet', 'teaser', 'announced'])
 } as const
 
 export type FlagKey = keyof typeof FLAG_SCHEMAS
 
 export const DEFAULT_FLAGS: Record<FlagKey, unknown> = {
-  eventMode: 'announced'
+  eventMode: 'auto'
 }

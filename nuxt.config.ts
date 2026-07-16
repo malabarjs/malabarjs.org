@@ -1,3 +1,12 @@
+import { readdirSync } from 'node:fs'
+
+// Every activity page must be prerendered explicitly: pre-reveal event pages
+// are unlinked, so the crawler can't discover them, and unprerendered
+// content pages 404 in the serverless runtime.
+const activityRoutes = readdirSync('./content/activities')
+  .filter(file => file.endsWith('.md'))
+  .map(file => `/activities/${file.replace(/\.md$/, '')}`)
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -53,7 +62,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/', ...activityRoutes]
     }
   },
 

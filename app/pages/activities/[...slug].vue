@@ -22,6 +22,10 @@ if (!activity.value) {
   })
 }
 
+// Direct links to an unrevealed event page get the teaser treatment.
+const { hiddenPreReveal } = useSiteFlags()
+const hidden = computed(() => activity.value && hiddenPreReveal(activity.value))
+
 const fmt = (iso: string) => {
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return iso
@@ -47,7 +51,29 @@ useSeoMeta({
 </script>
 
 <template>
-  <main class="py-12 sm:py-16 px-4">
+  <main
+    v-if="hidden"
+    class="py-24 px-4 text-center"
+  >
+    <p class="text-2xl font-semibold text-highlighted mb-2">
+      Something's coming 🤫
+    </p>
+    <p class="text-sm text-muted">
+      Details soon. Watch this space.
+    </p>
+    <UButton
+      to="/"
+      variant="link"
+      icon="i-lucide-arrow-left"
+      class="mt-6"
+    >
+      Back to home
+    </UButton>
+  </main>
+  <main
+    v-else
+    class="py-12 sm:py-16 px-4"
+  >
     <article class="max-w-2xl mx-auto">
       <UButton
         to="/"

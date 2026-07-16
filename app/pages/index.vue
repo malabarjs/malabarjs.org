@@ -3,6 +3,12 @@ const { data: activities } = await useAsyncData('activities', () =>
   queryCollection('activities').order('date', 'DESC').all()
 )
 
+// Upcoming events stay out of the timeline until the reveal phase.
+const { hiddenPreReveal } = useSiteFlags()
+const visibleActivities = computed(() =>
+  (activities.value ?? []).filter(a => !hiddenPreReveal(a))
+)
+
 // stem includes the collection folder ('activities/…'); strip it so links
 // resolve to /activities/<slug> instead of /activities/activities/<slug>.
 const activityLink = (stem: string) =>
@@ -39,7 +45,7 @@ onMounted(() => {
     }"
   >
     <UChangelogVersion
-      v-for="activity in activities"
+      v-for="activity in visibleActivities"
       :key="activity.stem"
       :tag="activity.tag"
       :title="activity.title"
@@ -88,7 +94,7 @@ onMounted(() => {
 
     <!-- Fallback when no activities exist -->
     <div
-      v-if="!activities?.length"
+      v-if="!visibleActivities.length"
       class="text-center text-muted py-12"
     >
       <p class="mb-2">

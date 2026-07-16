@@ -33,21 +33,17 @@ const socialLinks = [
 ]
 
 // Upcoming event - update this when you have events scheduled
+import { UPCOMING_EVENT } from '#shared/event'
+
 const upcomingEvent = {
-  title: 'MalabarJS Meetup',
-  date: 'Aug 22, 2026',
-  location: 'Kerala',
-  link: 'https://luma.com/a9xt40nb',
-  details: '/activities/2026-08-22-first-meetup'
+  title: UPCOMING_EVENT.title,
+  date: UPCOMING_EVENT.dateLabel,
+  location: UPCOMING_EVENT.location,
+  link: UPCOMING_EVENT.link,
+  details: UPCOMING_EVENT.details
 }
 
-// Runtime flags from /admin - the homepage is prerendered, so these are
-// fetched client-side; until they arrive we render the committed default.
-const { data: flags } = useFetch<Record<string, unknown>>('/api/flags', {
-  server: false,
-  default: () => ({ eventMode: 'announced' })
-})
-const teaser = computed(() => flags.value?.eventMode === 'teaser')
+const { phase } = useSiteFlags()
 
 const involveLinks = [
   { label: 'Speak', icon: 'i-lucide-mic', to: '/cfp' },
@@ -134,8 +130,9 @@ onMounted(() => {
             JavaScript culture in Kerala is huge, but scattered. We're building a space for JS folks to come closer together.
           </p>
 
-          <!-- Upcoming Event Card -->
+          <!-- Upcoming Event Card (phase-driven: hidden while quiet/past) -->
           <div
+            v-if="phase === 'teaser' || phase === 'announced'"
             data-hero-anim
             class="bg-elevated border border-default rounded-lg p-4 w-full max-w-sm self-center xl:self-start"
           >
@@ -146,7 +143,7 @@ onMounted(() => {
               />
               <span>UPCOMING</span>
             </div>
-            <template v-if="teaser">
+            <template v-if="phase === 'teaser'">
               <h3 class="font-semibold text-highlighted">
                 Something's coming 🤫
               </h3>
