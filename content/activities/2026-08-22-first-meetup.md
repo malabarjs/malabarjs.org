@@ -1,10 +1,10 @@
 ---
-title: First MalabarJS Meetup
+title: MalabarJS Meetup - August 2026
 date: 2026-08-22
 tag: event
 ---
 
-Our first meetup is happening on **August 22, 2026** in Kerala 🥥 - talks, demos, and JS folks finally in one room.
+We're meeting on **August 22, 2026** in Kerala 🥥 - talks, demos, and JS folks finally in one room.
 
 **[RSVP on Luma](https://luma.com/a9xt40nb)** to grab a spot, and follow [lu.ma/malabarjs](https://lu.ma/malabarjs) so you never miss an event.
 
@@ -14,9 +14,9 @@ The call for talks is open - lightning talks (5-10 min), standard talks (20-30 m
 
 **[Submit a talk →](/cfp)**
 
-## Help make it happen
+## Want to get involved?
 
-- Want to help run the event? **[Volunteer →](/volunteer)**
-- Have a venue, food, or swag to offer? **[Sponsor →](/sponsor)**
+- **[Volunteer →](/volunteer)** - help run the event
+- **[Sponsor →](/sponsor)** - venue, food, swag, anything helps
 
 Venue and schedule will be announced here and on the [Luma event page](https://luma.com/a9xt40nb). Stay tuned!

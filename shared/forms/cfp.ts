@@ -72,7 +72,7 @@ export const cfpForm = defineForm({
           required: true,
           options: [
             {
-              label: 'First MalabarJS Meetup - Aug 22, 2026',
+              label: 'MalabarJS Meetup - Aug 22, 2026',
               value: 'meetup-2026-08'
             },
             { label: 'Any future event', value: 'future' }

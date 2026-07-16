@@ -34,7 +34,7 @@ const socialLinks = [
 
 // Upcoming event - update this when you have events scheduled
 const upcomingEvent = {
-  title: 'First MalabarJS Meetup',
+  title: 'MalabarJS Meetup',
   date: 'Aug 22, 2026',
   location: 'Kerala',
   link: 'https://luma.com/a9xt40nb',
